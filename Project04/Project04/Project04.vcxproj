@@ -127,12 +127,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Admin.h" />
     <ClInclude Include="DanhSachHangHoa.h" />
+    <ClInclude Include="Display.h" />
     <ClInclude Include="HangHoa.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="DanhSachHangHoa.cpp" />
+    <ClCompile Include="Display.cpp" />
     <ClCompile Include="HangHoa.cpp" />
+    <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Admin.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
