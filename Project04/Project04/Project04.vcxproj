@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DanhSachHangHoa.h" />
     <ClInclude Include="HangHoa.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DanhSachHangHoa.cpp" />
     <ClCompile Include="HangHoa.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

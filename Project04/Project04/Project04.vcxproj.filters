@@ -18,9 +18,15 @@
     <ClInclude Include="HangHoa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DanhSachHangHoa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HangHoa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DanhSachHangHoa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
