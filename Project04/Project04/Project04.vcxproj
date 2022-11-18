@@ -131,10 +131,12 @@
     <ClInclude Include="DanhSachDonHang.h" />
     <ClInclude Include="DanhSachHangHoa.h" />
     <ClInclude Include="Display.h" />
+    <ClInclude Include="DonHang.h" />
     <ClInclude Include="HangHoa.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="DanhSachDonHang.cpp" />
     <ClCompile Include="DanhSachHangHoa.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="DonHang.cpp" />

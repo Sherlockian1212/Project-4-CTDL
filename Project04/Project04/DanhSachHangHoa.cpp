@@ -17,9 +17,9 @@ void DanhSachHangHoa::AddTail(HangHoa a) {
 	}
 	iSoLuong++;
 };
-void DanhSachHangHoa::Nhap()
+void DanhSachHangHoa::Nhap(string Path)
 {
-	ifstream input("C:\\Users\\HP\\Desktop\\Project7\\Project7\\HangHoa.txt");
+	ifstream input(Path);
 	HangHoa a;
 	while (!input.eof()) {
 		string MaH, TenH, NSX, MauS, NgayNhapK;

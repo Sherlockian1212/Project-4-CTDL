@@ -35,7 +35,7 @@ class DanhSachHangHoa {
 public:
 	DanhSachHangHoa();
 	void AddTail(HangHoa a);
-	void Nhap();
+	void Nhap(string Path);
 	void Xuat();
 	bool IsInHangHoa(string TenHH);
 	void PrintFind(string TenHH);

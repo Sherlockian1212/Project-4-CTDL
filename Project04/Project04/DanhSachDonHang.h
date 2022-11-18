@@ -6,9 +6,24 @@
 
 using namespace std;
 
-class DanhSachHangHoa {
-	DonHang hhDanhSach;
+class DanhSachDonHang;
+class Node {
+	DonHang data;
+	Node* _pNext;
+	friend DanhSachDonHang;
+public:
+	Node(DonHang a) {
+		data = a;
+		_pNext = NULL;
+	}
+};
+class DanhSachDonHang {
+	Node* _pHead;
+	Node* _pTail;
 	int iSoLuong;
+public:
+	DanhSachDonHang();
+	void XuLi(); 
 };
 
-#endif // !1#pragma once
+#endif // !1
