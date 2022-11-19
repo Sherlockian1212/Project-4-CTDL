@@ -1,7 +1,5 @@
 #include "DonHang.h"
 
-
-
 string DonHang::getstrTenKhachHang() {
 	return strTenKhachHang;
 }
