@@ -61,5 +61,11 @@
     <Text Include="Admin.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="HangHoa.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="DonHang.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -7,3 +7,6 @@ DanhSachDonHang::DanhSachDonHang() {
 void DanhSachDonHang::XuLi() {
 
 }
+void ThemDH(DonHang dh) {
+
+}

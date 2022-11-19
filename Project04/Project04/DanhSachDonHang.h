@@ -24,6 +24,7 @@ class DanhSachDonHang {
 public:
 	DanhSachDonHang();
 	void XuLi(); 
+	void ThemDH(DonHang dh);
 };
 
 #endif // !1

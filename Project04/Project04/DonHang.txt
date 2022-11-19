@@ -1,0 +1,46 @@
+1
+0001
+1
+0002
+2
+160000
+Thai Thi Kim Yen
+235B, Nguyen Van Cu, Quan 1
+0342071240
+15/11/2022
+2
+0004
+10
+20000
+Nguyen Thi Thu Ha
+Quan 5
+0123456789
+16/11/2022
+3
+0010
+1
+45000
+Nguyen Ngoc Thanh Thanh
+To Hien Thanh, Quan 10
+0123456789
+17/11/2022
+4
+0008
+1
+0006
+1
+215000
+Nguyen Phuong Nam
+Quan 5
+0123456789
+18/11/2022
+5
+0003
+1
+0005
+15
+730000
+Nguyen Phuong Dai
+Quan 1
+0123456789
+19/11/2022

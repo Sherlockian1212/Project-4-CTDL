@@ -145,6 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Admin.txt" />
+    <Text Include="DonHang.txt" />
+    <Text Include="HangHoa.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

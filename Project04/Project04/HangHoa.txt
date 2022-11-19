@@ -1,0 +1,70 @@
+0001
+Dong ho Thuy Si
+Trung Quoc
+Den
+150000
+12/12/2021
+50
+0002
+But long
+TPHCM, Viet Nam
+Xanh
+5000
+02/11/2022
+150
+0003
+May tinh cam tay FX-580
+Trung Quoc
+Trang
+580000
+19/11/2022
+200
+0004
+Giay ve (A4)
+Tan Binh, TPHCM, Viet Nam
+Trang
+2000
+18/11/2020
+1000
+0005
+Vo hoc sinh
+My Long, TP Long Xuyen, An Giang
+Vang
+10000
+15/02/2022
+1000
+0006
+Bo SGK Lop 10
+Cau Giay, Ha Noi
+Trang
+200000
+05/11/2022
+50
+0007
+Den ban hoc sinh
+Trung Quoc
+Xanh
+75000
+22/11/2021
+100
+0008
+Bo dung cu eke, thuoc ke
+Quan 5, TPHCM
+Trang
+15000
+07/11/2022
+100
+0009
+Bo dung cu thu cong
+Hoan Kiem, Ha Noi
+Vang
+50000
+25/5/2022
+150
+0010
+Bang ve dien tu 3D
+Viet Nam
+Hong
+45000
+10/10/2010
+50
