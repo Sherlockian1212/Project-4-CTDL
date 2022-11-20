@@ -3,13 +3,10 @@
 #include <iostream>
 #include <string>
 #include "HangHoa.h"
+#include <vector>
+#include <sstream>
 
 using namespace std;
-
-class DanhSachHangHoa {
-	HangHoa hhDanhSach;
-	int iSoLuong;
-};
 
 #endif // !1
 
@@ -36,7 +33,7 @@ public:
 	DanhSachHangHoa();
 	void AddTail(HangHoa a);
 	void Nhap(string Path);
-	void Xuat();
+	void Display();
 	bool IsInHangHoa(string TenHH);
 	void PrintFind(string TenHH);
 	void ThemHH();

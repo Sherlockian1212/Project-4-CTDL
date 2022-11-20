@@ -1,11 +1,13 @@
 #include "DanhSachHangHoa.h"
-#include "HangHoa.h"
+#include "DonHang.h"
+#include "Display.h"
 
 DanhSachHangHoa::DanhSachHangHoa() {
 	_pHead = NULL;
 	_pTail = NULL;
 	iSoLuong = 0;
 };
+
 void DanhSachHangHoa::AddTail(HangHoa a) {
 	Node* pAdd = new Node(a);
 	if (_pTail == NULL) {
@@ -17,12 +19,37 @@ void DanhSachHangHoa::AddTail(HangHoa a) {
 	}
 	iSoLuong++;
 };
+
 void DanhSachHangHoa::Nhap(string Path)
 {
 	ifstream input(Path);
 	HangHoa a;
 	while (!input.eof()) {
-		string MaH, TenH, NSX, MauS, NgayNhapK;
+		string str;
+
+		while (getline(input, str)) {
+			if (str[0] == '/' && str[1] == '/') continue;
+			stringstream ss(str);
+			string word;
+			vector<string> hanghoa;
+			while (!ss.eof()) {
+				getline(ss, word, ',');
+				word.erase(word.find_last_not_of(" ") + 1);
+				word.erase(0, word.find_first_not_of(" "));
+				hanghoa.push_back(word);
+			}
+			if (hanghoa.size() == 7) {
+				a.setMaHang(hanghoa[0]);
+				a.setTenHang(hanghoa[1]);
+				a.setNoiSanXuat(hanghoa[2]);
+				a.setMauSac(hanghoa[3]);
+				a.setGiaBan(stoi(hanghoa[4]));
+				a.setNgayNhapKho(hanghoa[5]);
+				a.setSoLuong(stoi(hanghoa[6]));
+				AddTail(a);
+			}
+		}
+		/*string MaH, TenH, NSX, MauS, NgayNhapK;
 		string Gia;
 		string sl;
 		getline(input, MaH);
@@ -41,8 +68,10 @@ void DanhSachHangHoa::Nhap(string Path)
 		getline(input, sl);
 		int SL = stoi(sl);
 		a.setSoLuong(SL);
-		AddTail(a);
+		AddTail(a);*/
 	}
+	input.close();
+	
 };
 void DanhSachHangHoa::ThemHH() {
 	HangHoa a;
@@ -77,14 +106,38 @@ void DanhSachHangHoa::PrintFind(string x) {
 	}
 	cout << "Khong co hang hoa co ten vua nhap";
 }
-void DanhSachHangHoa::Xuat() {
-	cout << "Ma Hang | Ten Hang | Noi san xuat | Mau sac | Gia ban | Ngay nhap kho | So luong" << endl;
+void DanhSachHangHoa::Display() {
 	Node* pTemp = _pHead;
+	box(2, 1, 110, 1, "", false);
+	gotoxy(3, 2); cout << "Ma";
+	gotoxy(10, 2); cout << "Ten Hang";
+	gotoxy(42, 2); cout << "Noi SX";
+	gotoxy(58, 2); cout << "Mau Sac";
+	gotoxy(72, 2); cout << "Gia ban";
+	gotoxy(85, 2); cout << "Ngay nhap kho";
+	gotoxy(102, 2); cout << "So luong";
+	//| Ten Hang | Noi san xuat | Mau sac | Gia ban | Ngay nhap kho | So luong" << endl;
+	int i = 1;
 	while (pTemp != NULL) {
-		cout << pTemp->data << endl;
+		box(2, i * 2 + 1, 110, 1, "", true);
+		gotoxy(3, i * 2 + 2); cout << pTemp->data.getMaHang();
+		gotoxy(10, i * 2 + 2); cout << pTemp->data.getTenHang();
+		gotoxy(42, i * 2 + 2); cout << pTemp->data.getNoiSanXuat();
+		gotoxy(58, i * 2 + 2); cout << pTemp->data.getMauSac();
+		gotoxy(72, i * 2 + 2); cout << pTemp->data.getGiaBan();
+		gotoxy(85, i * 2 + 2); cout << pTemp->data.getNgayNhapKho();
+		gotoxy(102, i * 2 + 2); cout << pTemp->data.getSoLuong();
 		pTemp = pTemp->_pNext;
+		i++;
 	};
+	box(2, i * 2 + 3, 6, 1, "Back", false);
+	gotoxy(7, i * 2 + 4);
+	while (true) {
+		char _inp = _getch();
+		if (_inp == IN::IN_RET) break;
+	}
 };
+
 bool DanhSachHangHoa::IsInHangHoa(string x) {
 	Node* pTemp = _pHead;
 	while (pTemp != NULL) {

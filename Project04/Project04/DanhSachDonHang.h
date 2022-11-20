@@ -1,3 +1,4 @@
+#pragma once
 #ifndef __DANHSACHDONHANG_H__ 
 #define __DANHSACHDONHANG_H__
 #include <iostream>

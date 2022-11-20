@@ -65,5 +65,6 @@ istream& operator >> (istream& is, DonHang& dh) {
 		cout << "Ngay dat hang phai co 10 ky tu!!! Moi nhap lai" << endl;
 		getline(is, dh.strNgayDatHang);
 	}
+	return is;
 }
 

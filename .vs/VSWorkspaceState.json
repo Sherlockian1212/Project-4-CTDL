@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Project04",
+    "\\Project04\\Project04",
+    "\\Project04\\Project04\\x64"
   ],
-  "SelectedNode": "\\Project04.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,22 +1,2 @@
-﻿  Admin.cpp
-  DanhSachHangHoa.cpp
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\HangHoa.h(21,34): error C2535: 'void HangHoa::setTenHang(std::string)': member function already defined or declared
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\HangHoa.h(19): message : see declaration of 'HangHoa::setTenHang'
-  Display.cpp
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\Display.cpp(41,32): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
-  HangHoa.cpp
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\HangHoa.h(21,34): error C2535: 'void HangHoa::setTenHang(std::string)': member function already defined or declared
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\HangHoa.h(19): message : see declaration of 'HangHoa::setTenHang'
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\HangHoa.cpp(3,10): error C2600: 'HangHoa::HangHoa': cannot define a compiler-generated special member function (must be declared in the class first)
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\HangHoa.cpp(15,15): error C2084: function 'void HangHoa::setTenHang(std::string)' already has a body
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\HangHoa.cpp(9): message : see previous definition of 'setTenHang'
-  Source.cpp
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\HangHoa.h(21,34): error C2535: 'void HangHoa::setTenHang(std::string)': member function already defined or declared
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\HangHoa.h(19): message : see declaration of 'HangHoa::setTenHang'
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\Source.cpp(23,5): error C2065: 'QLHangHoa': undeclared identifier
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\Source.cpp(23,15): error C2146: syntax error: missing ';' before identifier 'qlHH'
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\Source.cpp(23,15): error C2065: 'qlHH': undeclared identifier
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\Source.cpp(23,21): error C2065: 'qlHH': undeclared identifier
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\Source.cpp(101,89): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
-D:\DHSP\Year2\HK1\CauTrucDuLieu\Project-4-CTDL\Project04\Project04\Source.cpp(151,81): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
-  Generating Code...
+﻿  DanhSachHangHoa.cpp
+  Project04.vcxproj -> D:\Workspace\project\Project-4-CTDL\Project04\x64\Debug\Project04.exe
