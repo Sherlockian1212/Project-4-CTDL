@@ -1,2 +1,4 @@
 ﻿  DanhSachHangHoa.cpp
+D:\Workspace\project\Project-4-CTDL\Project04\Project04\DanhSachHangHoa.cpp(134,49): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+D:\Workspace\project\Project-4-CTDL\Project04\Project04\DanhSachHangHoa.cpp(173,50): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
   Project04.vcxproj -> D:\Workspace\project\Project-4-CTDL\Project04\x64\Debug\Project04.exe

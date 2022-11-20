@@ -35,7 +35,8 @@ public:
 	void Nhap(string Path);
 	void Display();
 	bool IsInHangHoa(string TenHH);
-	void PrintFind(string TenHH);
+	void Find(string x);
+	void PrintFind();
 	void ThemHH();
 	void Xoa(string x);
 	void CapNhatSoLuong(string x, int sl);
