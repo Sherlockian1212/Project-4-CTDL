@@ -1,5 +1,12 @@
 #include "DonHang.h"
 
+int DonHang::getiSTT() {
+	return stt;
+}
+void DonHang::setiSTT(int stt) {
+	this->stt = stt;
+}
+
 string DonHang::getstrTenKhachHang() {
 	return strTenKhachHang;
 }
@@ -24,47 +31,33 @@ string DonHang::getstrNgayDatHang() {
 void DonHang::setstrNgayDatHang(string s) {
 	strNgayDatHang = s;
 }
-float DonHang::getfTongTien() {
-	return fTongTien;
+int DonHang::getiTongTien() {
+	return iTongTien;
 }
-void DonHang::setfTongTien(float x) {
-	fTongTien = x;
+void DonHang::setiTongTien(int x) {
+	iTongTien = x;
 }
-LoaiHang DonHang::getlhLoaiHang() {
-	return lhLoaiHang;
+vector<string> DonHang::getlhLoaiHang() {
+	return this->MaHang;
 }
 
-void DonHang::setlhLoaiHang(LoaiHang lh) {
-	lhLoaiHang = lh;
+void DonHang::setlhLoaiHang(vector<string> mh) {
+	this->MaHang = mh;
 }
+
+vector<int> DonHang::getSl() {
+	return this->SoLuong;
+}
+
+void DonHang::setSl(vector<int> sl) {
+	this->SoLuong = sl;
+}
+
 DonHang::DonHang() {
 	strTenKhachHang = "";
 	strDiaChi = "";
 	strSoDienThoai = "";
 	strNgayDatHang = "";
-	fTongTien = 0;
-}
-
-istream& operator >> (istream& is, DonHang& dh) {
-	is >> dh.lhLoaiHang;
-	is >> dh.fTongTien;
-	if (dh.fTongTien < 0) {
-		cout << "Tong tien phai lon hon khong!!! Moi nhap lai" << endl;
-		is >> dh.fTongTien;
-	}
-	is.ignore();
-	getline(is, dh.strTenKhachHang);
-	getline(is, dh.strDiaChi);
-	getline(is, dh.strSoDienThoai);
-	if (dh.strSoDienThoai.length() != 10) {
-		cout << "So dien thoai phai co 10 so!!! Moi nhap lai" << endl;
-		getline(is, dh.strSoDienThoai);
-	}
-	getline(is, dh.strNgayDatHang);
-	if (dh.strNgayDatHang.length() != 10) {
-		cout << "Ngay dat hang phai co 10 ky tu!!! Moi nhap lai" << endl;
-		getline(is, dh.strNgayDatHang);
-	}
-	return is;
+	iTongTien = 0;
 }
 

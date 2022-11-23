@@ -1,6 +1,8 @@
 #include "Admin.h"
 #include "Display.h"
 #include "DanhSachHangHoa.h"
+#include "DanhSachDonHang.h"
+
 using namespace std;
 
 int main() {
@@ -17,13 +19,13 @@ int main() {
     HWND hwnd = GetConsoleWindow();
     if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 750, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
 
-
     //Handle
     QLAdmin qlAd; qlAd.loadData("./Admin.txt");
     DanhSachHangHoa dsHH; dsHH.Nhap("./HangHoa.txt");
+    DanhSachDonHang dsDh; dsDh.LoadFile("./Donhang.txt");
 
     bool isLoggedIn = false;
-    short route = 1; // 1: menu, 2: login, 3: menu QL, 4: Thong tin HH, 5: Tim kiem HH
+    short route = 1; // 1: menu, 2: login, 3: menu QL, 4: Thong tin HH, 5: Tim kiem HH, 6: Dat Hang, 7: Xu li Don Hang, 8: QL HH
     short cntLogin = 0;
 
     while (true) {
@@ -173,7 +175,7 @@ int main() {
             break;
         case 3: // Menu Quan Li
             box(20, 0, 30, 1, "Xu li don hang", false);
-            box(20, 2, 30, 1, "Quan li don hang", true);
+            box(20, 2, 30, 1, "Quan li hang hoa", true);
             box(20, 4, 30, 1, "Menu", true);
             box(20, 6, 30, 1, "Log out", true);
             gotoxy(20 + 15, 1);
@@ -182,7 +184,7 @@ int main() {
                 switch (vs) {
                 case 1:
                     if (chose == '\t') { vs = 2; gotoxy(20 + 17, 3); continue; }
-                    else if (chose == IN::IN_RET) { }
+                    else if (chose == IN::IN_RET) { route = 7; }
                     break;
                 case 2:
                     if (chose == '\t') { vs = 3; gotoxy(20 + 5, 5); continue; }
@@ -208,14 +210,24 @@ int main() {
             }
             break;
         case 4:
-            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1200, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
+            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1300, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
             dsHH.Display();
             route = 1;
             break;
         case 5:
-            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1200, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
+            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1300, 800, SWP_SHOWWINDOW | SWP_NOMOVE); }
             dsHH.PrintFind();
             route = 1;
+            break;
+        case 6:
+            
+            break;
+        case 7:
+            dsDh.XuLi();
+            route = 3;
+            break;
+        case 8:
+
             break;
         default:
             break;

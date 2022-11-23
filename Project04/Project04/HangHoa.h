@@ -1,6 +1,4 @@
 #pragma once
-#ifndef __HANGHOA_H__ 
-#define __HANGHOA_H__
 #include <iostream>
 #include <string>
 
@@ -35,5 +33,4 @@ public:
 	friend ostream& operator <<(ostream& os, HangHoa a);
 
 };
-#endif // !1
 

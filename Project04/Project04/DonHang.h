@@ -1,47 +1,18 @@
 #pragma once
-#ifndef __HANGHOA_H__ 
-#define __HANGHOA_H__
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
-struct LoaiHang {
-	string strMaHang;
-	int iSoLuong;
-
-	string getstrMaHang() {
-		return strMaHang;
-	}
-	void setstrMaHang(string s) {
-		strMaHang = s;
-	}
-	int getiSoLuong() {
-		return iSoLuong;
-	}
-	void setiSoLuong(int x) {
-		iSoLuong = x;
-	}
-
-	friend istream& operator >> (istream& is, LoaiHang& lh) {
-		is.ignore();
-		getline(is, lh.strMaHang);
-		if (lh.strMaHang.length() != 4) {
-			cout << "Ma hang gom 4 ki tu !!! Moi nhap lai." << endl;
-			getline(is, lh.strMaHang);
-		}
-		is >> lh.iSoLuong;
-		if (lh.iSoLuong < 0) {
-			cout << "So luong hang phai lon hon 0!!! Moi nhap lai." << endl;
-			is >> lh.iSoLuong;
-		}
-		return is;
-	}
-};
 
 class DonHang {
-	LoaiHang lhLoaiHang;
-	float fTongTien;
+	int stt;
+	vector<string> MaHang;
+	vector<int> SoLuong;
+	int iTongTien;
 	string strTenKhachHang, strDiaChi, strSoDienThoai, strNgayDatHang;
 public:
+	int getiSTT();
+	void setiSTT(int stt);
 	string getstrTenKhachHang();
 	void setstrTenKhachHang(string s);
 	string getstrDiaChi();
@@ -50,13 +21,11 @@ public:
 	void setstrSoDienThoai(string s);
 	string getstrNgayDatHang();
 	void setstrNgayDatHang(string s);
-	float getfTongTien();
-	void setfTongTien(float x);
-	LoaiHang getlhLoaiHang();
-	void setlhLoaiHang(LoaiHang lh);
+	int getiTongTien();
+	void setiTongTien(int x);
+	vector<string> getlhLoaiHang();
+	void setlhLoaiHang(vector<string> mh);
+	vector<int> getSl();
+	void setSl(vector<int> sl);
 	DonHang();
-	friend istream& operator >> (istream& is, DonHang& dh);
-
 };
-
-#endif // !1#pragma once

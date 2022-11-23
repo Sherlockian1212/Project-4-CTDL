@@ -1,4 +1,8 @@
 ﻿  DanhSachHangHoa.cpp
-D:\Workspace\project\Project-4-CTDL\Project04\Project04\DanhSachHangHoa.cpp(134,49): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
-D:\Workspace\project\Project-4-CTDL\Project04\Project04\DanhSachHangHoa.cpp(173,50): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
-  Project04.vcxproj -> D:\Workspace\project\Project-4-CTDL\Project04\x64\Debug\Project04.exe
+C:\Workspace\Project-4-CTDL\Project04\Project04\DanhSachHangHoa.cpp(112,49): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+C:\Workspace\Project-4-CTDL\Project04\Project04\DanhSachHangHoa.cpp(151,50): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+  Source.cpp
+C:\Workspace\Project-4-CTDL\Project04\Project04\Source.cpp(109,89): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+C:\Workspace\Project-4-CTDL\Project04\Project04\Source.cpp(160,81): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+  Generating Code...
+  Project04.vcxproj -> C:\Workspace\Project-4-CTDL\Project04\x64\Debug\Project04.exe

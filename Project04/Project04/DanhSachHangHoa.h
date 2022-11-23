@@ -1,18 +1,13 @@
-#ifndef __DANHSACHHANGHOA_H__ 
-#define __DANHSACHHANGHOA_H__
+#pragma once
 #include <iostream>
 #include <string>
 #include "HangHoa.h"
 #include <vector>
 #include <sstream>
+#include<fstream>
 
 using namespace std;
 
-#endif // !1
-
-#include<iostream>
-#include<fstream>
-#include<string>
 
 class DanhSachHangHoa;
 class Node {
@@ -33,6 +28,7 @@ public:
 	DanhSachHangHoa();
 	void AddTail(HangHoa a);
 	void Nhap(string Path);
+	void UpdateFile(string Path);
 	void Display();
 	bool IsInHangHoa(string TenHH);
 	void Find(string x);

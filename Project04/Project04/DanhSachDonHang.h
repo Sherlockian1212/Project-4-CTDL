@@ -1,31 +1,38 @@
 #pragma once
-#ifndef __DANHSACHDONHANG_H__ 
-#define __DANHSACHDONHANG_H__
 #include <iostream>
 #include <string>
 #include "DonHang.h"
+#include <vector>
+#include <sstream>
+#include <fstream>
 
 using namespace std;
 
+
 class DanhSachDonHang;
-class Node {
-	DonHang data;
-	Node* _pNext;
+class NodeDonHang {
+private:
 	friend DanhSachDonHang;
+	DonHang data;
+	NodeDonHang* _pNext;
 public:
-	Node(DonHang a) {
+	NodeDonHang(DonHang a) {
 		data = a;
 		_pNext = NULL;
 	}
 };
+
 class DanhSachDonHang {
-	Node* _pHead;
-	Node* _pTail;
+private:
+	NodeDonHang* _pHead;
+	NodeDonHang* _pTail;
 	int iSoLuong;
 public:
 	DanhSachDonHang();
-	void XuLi(); 
-	void ThemDH(DonHang dh);
+	void LoadFile(string path);
+	void UpdateFile(string path);
+	void AddTail(NodeDonHang a);
+	void XuLi();
+	void DatHang();
 };
 
-#endif // !1
