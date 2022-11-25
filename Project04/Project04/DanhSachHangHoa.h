@@ -6,9 +6,7 @@
 #include <sstream>
 #include<fstream>
 
-
 using namespace std;
-
 
 class DanhSachHangHoa;
 class Node {
@@ -39,4 +37,5 @@ public:
 	void CapNhatSoLuong(string x, int sl);
 	int GetSoLuongMatHang(string x);
 	int GetGiaMatHang(string x);
+	void QLHangHoa();
 };

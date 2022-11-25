@@ -37,7 +37,8 @@ void DanhSachHangHoa::Nhap(string Path)
 				word.erase(0, word.find_first_not_of(" "));
 				hanghoa.push_back(word);
 			}
-			if (hanghoa.size() == 7) {
+			if (hanghoa.size() >= 7 && hanghoa[0].length() == 4 && hanghoa[1].length() && hanghoa[2].length() && hanghoa[3].length() && hanghoa[4].length() 
+				&& hanghoa[5].length() && hanghoa[6].length()) {
 				a.setMaHang(hanghoa[0]);
 				a.setTenHang(hanghoa[1]);
 				a.setNoiSanXuat(hanghoa[2]);
@@ -284,4 +285,232 @@ void DanhSachHangHoa::UpdateFile(string path) {
 		}
 	}
 	output.close();
+}
+
+void DanhSachHangHoa::QLHangHoa() {
+	short route = 1; //1: Menu, 2: Them, 3: Xoa, 4: Cap Nhat So luong
+	while (true) {
+		system("CLS");
+		short vs = 1;
+
+		switch (route)
+		{
+		case 1:
+		{
+			short vsX = 25;
+			box(vsX, 3, 20, 1, "Them", false);
+			box(vsX, 5, 20, 1, "Xoa", true);
+			box(vsX, 7, 20, 1, "Cap nhat", true);
+			box(vsX, 9, 20, 1, "Quay lai", true);
+			gotoxy(vsX + 5, 4);
+			while (true) {
+				char chose = _getch();
+				switch (vs) {
+				case 1:
+					if (chose == '\t') { vs = 2; gotoxy(vsX + 4, 6); continue; }
+					if (chose == IN::IN_RET) { route = 2; }
+					break;
+				case 2:
+					if (chose == '\t') { vs = 3; gotoxy(vsX + 9, 8); continue; }
+					if (chose == IN::IN_RET) route = 3;
+					break;
+				case 3:
+					if (chose == '\t') { vs = 4; gotoxy(vsX + 9, 10); continue; }
+					if (chose == IN::IN_RET) { route = 4; }
+					break;
+				case 4:
+					if (chose == '\t') { vs = 1; gotoxy(vsX + 5, 4); continue; }
+					if (chose == IN::IN_RET) return;
+					break;
+				default:
+					break;
+				}
+				break;
+			}
+		}
+		break;
+		case 2:
+		{
+			short vsXThem = 15;
+			string maHang = "";
+			string tenHang = "";
+			string noiSanXuat = "";
+			string mauSac = "";
+			string gia = "";
+			string ngayNhap = "";
+			string soLuong = "";
+			box(vsXThem, 3, 40, 1, "Ma Hang:", false);
+			box(vsXThem, 5, 40, 1, "Ten Mat Hang:", true);
+			box(vsXThem, 7, 40, 1, "Noi San Xuat:", true);
+			box(vsXThem, 9, 40, 1, "Mau Sac:", true);
+			box(vsXThem, 11, 40, 1, "Gia ban:", true);
+			box(vsXThem, 13, 40, 1, "Ngay nhap kho:", true);
+			box(vsXThem, 15, 40, 1, "So Luong:", true);
+			box(vsXThem, 17, 40, 1, "               Xac nhan", true);
+			gotoxy(vsXThem + 10, 4);
+			while (true) {
+				char _inp = _getch();
+				if (_inp == 27) { route = 1; break; }
+				switch (vs) {
+				case 1:
+				{
+					if (_inp == '\t' || _inp == IN::IN_RET) { 
+						short vsw = tenHang.length() >= 30 ? 30 : tenHang.length();
+						vs = 2; gotoxy(vsXThem + 15 + vsw, 6); continue;
+					}
+					takeInput(maHang, _inp, false, 30); continue;
+				}
+				break;
+				case 2:
+				{
+					if (_inp == '\t' || _inp == IN::IN_RET) { 
+						short vsw = noiSanXuat.length() >= 30 ? 30 : noiSanXuat.length();
+						vs = 3; gotoxy(vsXThem + 15 + vsw, 8); continue;
+					}
+					takeInput(tenHang, _inp, false, 30); continue;
+				}
+				break;
+				case 3:
+				{
+					if (_inp == '\t' || _inp == IN::IN_RET) { 
+						short vsw = mauSac.length() >= 30 ? 30 : mauSac.length();
+						vs = 4; gotoxy(vsXThem + 10 + vsw, 10); continue;
+					}
+					takeInput(noiSanXuat, _inp, false, 30); continue;
+				}
+				break;
+				case 4:
+				{
+					if (_inp == '\t' || _inp == IN::IN_RET) { 
+						short vsw = gia.length() >= 30 ? 30 : gia.length();
+						vs = 5; gotoxy(vsXThem + 10 + vsw, 12); continue;
+					}
+					takeInput(mauSac, _inp, false, 30); continue;
+				}
+				break;
+				case 5:
+				{
+					if (_inp == '\t' || _inp == IN::IN_RET) { 
+						short vsw = ngayNhap.length() >= 30 ? 30 : ngayNhap.length();
+						vs = 6; gotoxy(vsXThem + 16 + vsw, 14); continue;
+					}
+					takeInput(gia, _inp, false, 30); continue;
+				}
+				break;
+				case 6:
+				{
+					if (_inp == '\t' || _inp == IN::IN_RET) {
+						short vsw = soLuong.length() >= 30 ? 30 : soLuong.length();
+						vs = 7; gotoxy(vsXThem + 11 + vsw, 16); continue;
+					}
+					takeInput(ngayNhap, _inp, false, 30); continue;
+				}
+				break;
+				case 7:
+				{
+					if (_inp == '\t' || _inp == IN::IN_RET) { vs = 8; gotoxy(vsXThem + 24, 18); continue; }
+					takeInput(soLuong, _inp, false, 30); continue;
+				}
+				break;
+				case 8:
+				{
+					if (_inp == '\t') { 
+						short vsw = maHang.length() >= 30 ? 30 : maHang.length();
+						vs = 1; gotoxy(vsXThem + 10 + vsw, 4); continue;
+					}
+					if (_inp == IN::IN_RET) {
+						gotoxy(vsXThem, 20); cout << "                                         ";
+						gotoxy(vsXThem, 21); cout << "                                         ";
+						if (maHang.length() == 4 && tenHang.length() && noiSanXuat.length() && mauSac.length() && gia.length()
+							&& ngayNhap.length() && soLuong.length()) {
+							if (IsInHangHoa(maHang)) {
+								gotoxy(vsXThem, 20); cout << "Ma Hang da ton tai"; continue;
+							}
+							else {
+								HangHoa newHH;
+								newHH.setMaHang(maHang);
+								newHH.setTenHang(tenHang);
+								newHH.setNoiSanXuat(noiSanXuat);
+								newHH.setMauSac(mauSac);
+								newHH.setGiaBan(stoi(gia));
+								newHH.setNgayNhapKho(ngayNhap);
+								newHH.setSoLuong(stoi(soLuong));
+								AddTail(newHH);
+								UpdateFile("./HangHoa.txt");
+								gotoxy(vsXThem, 20); cout << "Them thanh cong";
+							}
+						}
+						else {
+							gotoxy(vsXThem, 20); cout << "Vui long nhap day du thong tin";
+							gotoxy(vsXThem, 21); cout << "Va ma hang phai bang 4 ki tu"; continue;
+						}
+						
+					}
+					continue;
+				}
+				break;
+				default:
+					break;
+				}
+				break;
+			}
+		}
+		break;
+
+		case 3:
+		{
+			while (true) {
+				system("CLS");
+				string maHang;
+				cout << "Nhap ma hang muon xoa: ";
+				cin >> maHang;
+				if (IsInHangHoa(maHang)) {
+					Xoa(maHang);
+					UpdateFile("./HangHoa.txt");
+					cout << "\nXoa thanh cong";
+				}
+				else {
+					cout << "\nMa hang khong ton tai";
+				}
+				cout << "\nBam phim bat ki de tiep tuc hoac Exc de thoat";
+				char _inp = _getch();
+				if (_inp == 27) {
+					route = 1; break;
+				}
+			}
+		}
+		break;
+
+		case 4:
+		{
+			while (true) {
+				system("CLS");
+				string maHang;
+				cout << "Nhap ma hang muon cap nhat: ";
+				cin >> maHang;
+				if (IsInHangHoa(maHang)) {
+					int soLuong;
+					cout << "Nhap so luong muon cap nhat: ";
+					cin >> soLuong;
+					CapNhatSoLuong(maHang, soLuong);
+					UpdateFile("./HangHoa.txt");
+					cout << "\nCap nhat thanh cong";
+				}
+				else {
+					cout << "\nMa hang khong ton tai";
+				}
+				cout << "\nBam phim bat ki de tiep tuc hoac Exc de thoat";
+				char _inp = _getch();
+				if (_inp == 27) {
+					route = 1; break;
+				}
+			}
+		}
+		break;
+
+		break;
+		default:
+			break;
+		}
+	}
 }

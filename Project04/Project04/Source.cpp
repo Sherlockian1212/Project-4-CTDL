@@ -91,7 +91,7 @@ int main() {
                 string password;
                 box(12, 4, 40, 1, "User: ", false);
                 box(12, 6, 40, 1, "Password: ", true);
-                box(42, 10, 10, 1, "Continue", false);
+                box(42, 10, 10, 1, "Tiep tuc", false);
                 box(12, 10, 6, 1, "Back", false);
                 gotoxy(12 + 7, 5);
                 while (true) {
@@ -109,8 +109,7 @@ int main() {
                             gotoxy(12 + 11 + wvs, 7);
                             continue;
                         }
-                        else { takeInput(user, inp, false, 30); continue; }
-                        break;
+                        takeInput(user, inp, false, 30); continue;
                     case 2: 
                         if (inp == '\t') {
                             vs = 3; gotoxy(42 + 9, 11); continue;
@@ -137,7 +136,7 @@ int main() {
                         if (inp == '\t') {
                             vs = 4; gotoxy(12 + 5, 11); continue;
                         }
-                        else if (inp == IN::IN_RET) {
+                        if (inp == IN::IN_RET) {
                             isLoggedIn = qlAd.checkAuth(user, password);
                             if (!isLoggedIn) {
                                 cntLogin++;
@@ -160,7 +159,7 @@ int main() {
                             gotoxy(12 + 7 + wvs, 5);
                             continue;
                         }
-                        else if (inp == IN::IN_RET) {
+                        if (inp == IN::IN_RET) {
                             route = 1; break;
                         }
                         break;
@@ -173,6 +172,7 @@ int main() {
             else route = 3;
             break;
         case 3: // Menu Quan Li
+            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 750, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
             box(20, 0, 30, 1, "Xu li don hang", false);
             box(20, 2, 30, 1, "Quan li hang hoa", true);
             box(20, 4, 30, 1, "Menu", true);
@@ -187,7 +187,7 @@ int main() {
                     break;
                 case 2:
                     if (chose == '\t') { vs = 3; gotoxy(20 + 5, 5); continue; }
-                    else if (chose == IN::IN_RET) { }
+                    else if (chose == IN::IN_RET) { route = 8; }
                     break;
                 case 3:
                     if (chose == '\t') { vs = 4; gotoxy(20 + 8, 7); continue; }
@@ -210,7 +210,7 @@ int main() {
             break;
         case 4:
         {
-            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1300, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
+            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1400, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
             int iY = dsHH.Display();
             box(2, iY * 2 + 3, 6, 1, "Exc", false);
             gotoxy(6, iY * 2 + 4);
@@ -227,7 +227,7 @@ int main() {
             route = 1;
             break;
         case 6:
-            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1300, 800, SWP_SHOWWINDOW | SWP_NOMOVE); }
+            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1400, 800, SWP_SHOWWINDOW | SWP_NOMOVE); }
             dsDh.DatHang(dsHH);
             route = 1;
             break;
@@ -236,7 +236,8 @@ int main() {
             route = 3;
             break;
         case 8:
-
+            dsHH.QLHangHoa();
+            route = 3;
             break;
         default:
             break;

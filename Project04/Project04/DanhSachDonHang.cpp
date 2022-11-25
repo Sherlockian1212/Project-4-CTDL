@@ -79,7 +79,8 @@ void DanhSachDonHang::LoadFile(string Path)
 				word.erase(0, word.find_first_not_of(" "));
 				donhang.push_back(word);
 			}
-			if (donhang.size() == 8) {
+			if (donhang.size() == 8 && donhang[0].length() && donhang[1].length() && donhang[2].length() && donhang[3].length()
+				&& donhang[4].length() && donhang[5].length() && donhang[6].length() && donhang[7].length()) {
 				vector<string> mh;
 				stringstream ssDh(donhang[1]);
 				while (!ssDh.eof()) {
@@ -196,7 +197,8 @@ void DanhSachDonHang::DatHang(DanhSachHangHoa dsHH) {
 				continue;
 			}
 			else if (_inp == IN::IN_RET) {
-				if (hoten.length() && diachi.length() && sdt.length()) {
+				gotoxy(15, yDsHH * 2 + 17); cout << "                                           ";
+				if (hoten.length() && diachi.length() && sdt.length() >= 9 && sdt.length() <= 12) {
 					int soLoaiHang = stoi(soLoaiHangDat);
 					for (int i = 1; i <= soLoaiHang; i++) {
 						box(15, yDsHH * 2 + 11 + (i * 2), 80, 1, "Ma hang:                 So luong: ", true);
@@ -262,11 +264,12 @@ void DanhSachDonHang::DatHang(DanhSachHangHoa dsHH) {
 								a.setiTongTien(totalCoin);
 								AddTail(a);
 								UpdateFile("./DonHang.txt");
-								for (int i = 0; i < maHang.size(); i++) {
-									dsHH.CapNhatSoLuong(maHang[i], dsHH.GetSoLuongMatHang(maHang[i]) - stoi(soLuong[i]));
+								for (int i = 0; i < soLoaiHang; i++) {
+									dsHH.CapNhatSoLuong(maHang[i], (dsHH.GetSoLuongMatHang(maHang[i]) - sl[i]));
 								}
 								dsHH.UpdateFile("./HangHoa.txt");
 								dsHH.Display();
+								gotoxy(85 + 9, yDsHH * 2 + 14 + ((soLoaiHang + 1) * 2));
 								while (true) {
 									char _cls = _getch();
 									if (_cls == 27 || _cls == IN::IN_RET) {
@@ -285,7 +288,7 @@ void DanhSachDonHang::DatHang(DanhSachHangHoa dsHH) {
 					}
 				}
 				else {
-
+					gotoxy(15, yDsHH * 2 + 17); cout << "Vui long nhap day du va dung thong tin!";
 				}
 			}
 			else { takeInput(soLoaiHangDat, _inp, false, 3); continue; }
