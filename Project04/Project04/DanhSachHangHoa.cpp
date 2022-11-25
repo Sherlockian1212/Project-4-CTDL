@@ -288,6 +288,7 @@ void DanhSachHangHoa::UpdateFile(string path) {
 }
 
 void DanhSachHangHoa::QLHangHoa() {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	short route = 1; //1: Menu, 2: Them, 3: Xoa, 4: Cap Nhat So luong
 	while (true) {
 		system("CLS");
@@ -424,7 +425,10 @@ void DanhSachHangHoa::QLHangHoa() {
 						if (maHang.length() == 4 && tenHang.length() && noiSanXuat.length() && mauSac.length() && gia.length()
 							&& ngayNhap.length() && soLuong.length()) {
 							if (IsInHangHoa(maHang)) {
-								gotoxy(vsXThem, 20); cout << "Ma Hang da ton tai"; continue;
+								SetConsoleTextAttribute(hConsole, 12);
+								gotoxy(vsXThem, 20); cout << "Ma Hang da ton tai";
+								SetConsoleTextAttribute(hConsole, 15);
+								continue;
 							}
 							else {
 								HangHoa newHH;
@@ -441,8 +445,11 @@ void DanhSachHangHoa::QLHangHoa() {
 							}
 						}
 						else {
+							SetConsoleTextAttribute(hConsole, 12);
 							gotoxy(vsXThem, 20); cout << "Vui long nhap day du thong tin";
-							gotoxy(vsXThem, 21); cout << "Va ma hang phai bang 4 ki tu"; continue;
+							gotoxy(vsXThem, 21); cout << "Va ma hang phai bang 4 ki tu";
+							SetConsoleTextAttribute(hConsole, 15);
+							continue;
 						}
 						
 					}

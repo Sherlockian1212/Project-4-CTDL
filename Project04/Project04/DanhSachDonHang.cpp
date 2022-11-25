@@ -135,8 +135,12 @@ void DanhSachDonHang::UpdateFile(string Path) {
 }
 
 void DanhSachDonHang::DatHang(DanhSachHangHoa dsHH) {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 14);
+
 	int yDsHH = dsHH.Display();
-	
+	SetConsoleTextAttribute(hConsole, 15);
+
 	string hoten = "";
 	string diachi = "";
 	string sdt = "";
@@ -212,6 +216,7 @@ void DanhSachDonHang::DatHang(DanhSachHangHoa dsHH) {
 					bool maH = true;
 					while (true) {
 						char _inpMH = _getch();
+						if (_inpMH == 27) return;
 
 						if (_inpMH == '\t') {
 							if (vsMh < soLoaiHang) {
@@ -249,7 +254,9 @@ void DanhSachDonHang::DatHang(DanhSachHangHoa dsHH) {
 							}
 							if (!flag) {
 								gotoxy(15, yDsHH * 2 + 15 + ((soLoaiHang + 1) * 2));
+								SetConsoleTextAttribute(hConsole, 12);
 								cout << "Vui long nhap dung ma hang va so luong!";
+								SetConsoleTextAttribute(hConsole, 15);
 							}
 							else {
 								gotoxy(15, yDsHH * 2 + 15 + ((soLoaiHang + 1) * 2));
@@ -288,7 +295,9 @@ void DanhSachDonHang::DatHang(DanhSachHangHoa dsHH) {
 					}
 				}
 				else {
+					SetConsoleTextAttribute(hConsole, 12);
 					gotoxy(15, yDsHH * 2 + 17); cout << "Vui long nhap day du va dung thong tin!";
+					SetConsoleTextAttribute(hConsole, 15);
 				}
 			}
 			else { takeInput(soLoaiHangDat, _inp, false, 3); continue; }

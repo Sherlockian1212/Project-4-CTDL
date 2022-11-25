@@ -19,6 +19,9 @@ int main() {
     HWND hwnd = GetConsoleWindow();
     if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 750, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
 
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 15);
+
     //Handle
     QLAdmin qlAd; qlAd.loadData("./Admin.txt");
     DanhSachHangHoa dsHH; dsHH.Nhap("./HangHoa.txt");
@@ -120,9 +123,11 @@ int main() {
                                 cntLogin++;
                                 if (cntLogin > 3) { route = 1; break; }
                                 gotoxy(12, 14);
+                                SetConsoleTextAttribute(hConsole, 12);
                                 cout << "Tai khoan hoac mat khau khong dung!";
                                 gotoxy(12, 15);
                                 cout << "bam \"Enter\" de tiep tuc";
+                                SetConsoleTextAttribute(hConsole, 15);
                                 while (true) {
                                     char ent = _getch();
                                     if (ent == IN::IN_RET) break;
@@ -142,9 +147,11 @@ int main() {
                                 cntLogin++;
                                 if (cntLogin > 3) { route = 1; break; }
                                 gotoxy(12, 14);
+                                SetConsoleTextAttribute(hConsole, 12);
                                 cout << "Tai khoan hoac mat khau khong dung!";
                                 gotoxy(12, 15);
                                 cout << "bam \"Enter\" de tiep tuc";
+                                SetConsoleTextAttribute(hConsole, 15);
                                 while (true) {
                                     char ent = _getch();
                                     if (ent == IN::IN_RET) break;
@@ -211,7 +218,9 @@ int main() {
         case 4:
         {
             if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1400, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
+            SetConsoleTextAttribute(hConsole, 14);
             int iY = dsHH.Display();
+            SetConsoleTextAttribute(hConsole, 15);
             box(2, iY * 2 + 3, 6, 1, "Exc", false);
             gotoxy(6, iY * 2 + 4);
             while (true) {
