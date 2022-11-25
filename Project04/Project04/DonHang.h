@@ -5,14 +5,12 @@
 using namespace std;
 
 class DonHang {
-	int stt;
+private:
 	vector<string> MaHang;
 	vector<int> SoLuong;
 	int iTongTien;
 	string strTenKhachHang, strDiaChi, strSoDienThoai, strNgayDatHang;
 public:
-	int getiSTT();
-	void setiSTT(int stt);
 	string getstrTenKhachHang();
 	void setstrTenKhachHang(string s);
 	string getstrDiaChi();

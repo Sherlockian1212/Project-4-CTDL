@@ -162,12 +162,12 @@ void DanhSachHangHoa::PrintFind() {
 	
 
 }
-void DanhSachHangHoa::Display() {
+int DanhSachHangHoa::Display() {
 	Node* pTemp = _pHead;
 	box(2, 1, 110, 1, "", false);
 	gotoxy(3, 2); cout << "Ma";
 	gotoxy(10, 2); cout << "Ten Hang";
-	gotoxy(38, 2); cout << "Noi SX";
+	gotoxy(35, 2); cout << "Noi SX";
 	gotoxy(58, 2); cout << "Mau Sac";
 	gotoxy(72, 2); cout << "Gia ban";
 	gotoxy(85, 2); cout << "Ngay nhap kho";
@@ -176,8 +176,19 @@ void DanhSachHangHoa::Display() {
 	while (pTemp != NULL) {
 		box(2, i * 2 + 1, 110, 1, "", true);
 		gotoxy(3, i * 2 + 2); cout << pTemp->data.getMaHang();
-		gotoxy(10, i * 2 + 2); cout << pTemp->data.getTenHang();
-		gotoxy(38, i * 2 + 2); cout << pTemp->data.getNoiSanXuat();
+		gotoxy(10, i * 2 + 2);
+		auto showLengthTenHang = pTemp->data.getTenHang().length() >= 18 ? 18 : pTemp->data.getTenHang().length();
+		for (short i = 0; i < showLengthTenHang; i++) {
+			cout << pTemp->data.getTenHang()[i];
+		}
+		if (pTemp->data.getTenHang().length() > 18) cout << "...";
+		gotoxy(35, i * 2 + 2); 
+		auto showLengthNSX = pTemp->data.getNoiSanXuat().length() >= 18 ? 18 : pTemp->data.getNoiSanXuat().length();
+		for (short i = 0; i < showLengthNSX; i++) {
+			cout << pTemp->data.getNoiSanXuat()[i];
+		}
+		if (pTemp->data.getNoiSanXuat().length() > 18) cout << "...";
+		
 		gotoxy(58, i * 2 + 2); cout << pTemp->data.getMauSac();
 		gotoxy(72, i * 2 + 2); cout << pTemp->data.getGiaBan();
 		gotoxy(85, i * 2 + 2); cout << pTemp->data.getNgayNhapKho();
@@ -185,12 +196,7 @@ void DanhSachHangHoa::Display() {
 		pTemp = pTemp->_pNext;
 		i++;
 	};
-	box(2, i * 2 + 3, 6, 1, "Back", false);
-	gotoxy(7, i * 2 + 4);
-	while (true) {
-		char _inp = _getch();
-		if (_inp == IN::IN_RET) break;
-	}
+	return i;
 };
 
 bool DanhSachHangHoa::IsInHangHoa(string x) {
@@ -237,4 +243,45 @@ void DanhSachHangHoa::CapNhatSoLuong(string x, int sl) {
 		}
 		pTemp = pTemp->_pNext;
 	}
+}
+
+int DanhSachHangHoa::GetSoLuongMatHang(string x) {
+	Node* pTemp = _pHead;
+	while (pTemp != NULL) {
+		if (pTemp->data.getMaHang() == x) {
+			return pTemp->data.getSoLuong();
+		}
+		pTemp = pTemp->_pNext;
+	}
+	return 0;
+}
+
+int DanhSachHangHoa::GetGiaMatHang(string x) {
+	Node* pTemp = _pHead;
+	while (pTemp != NULL) {
+		if (pTemp->data.getMaHang() == x) {
+			return pTemp->data.getGiaBan();
+		}
+		pTemp = pTemp->_pNext;
+	}
+	return 0;
+}
+
+void DanhSachHangHoa::UpdateFile(string path) {
+	ofstream output;
+	output.open(path);
+	if (output.is_open()) {
+		Node* pTmp = _pHead;
+		while (pTmp != NULL) {
+			output << pTmp->data.getMaHang() << "; ";
+			output << pTmp->data.getTenHang() << "; ";
+			output << pTmp->data.getNoiSanXuat() << "; ";
+			output << pTmp->data.getMauSac() << "; ";
+			output << pTmp->data.getGiaBan() << "; ";
+			output << pTmp->data.getNgayNhapKho() << "; ";
+			output << pTmp->data.getSoLuong() << endl;
+			pTmp = pTmp->_pNext;
+		}
+	}
+	output.close();
 }

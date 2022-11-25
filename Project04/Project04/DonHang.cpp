@@ -1,12 +1,5 @@
 #include "DonHang.h"
 
-int DonHang::getiSTT() {
-	return stt;
-}
-void DonHang::setiSTT(int stt) {
-	this->stt = stt;
-}
-
 string DonHang::getstrTenKhachHang() {
 	return strTenKhachHang;
 }

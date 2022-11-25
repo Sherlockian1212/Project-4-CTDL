@@ -29,7 +29,6 @@ int main() {
     short cntLogin = 0;
 
     while (true) {
-        if (route == 9) exit(0);
         system("CLS");
         short vs = 1;
 
@@ -59,7 +58,7 @@ int main() {
                     break;
                 case 3:
                     if (chose == '\t') { vs = 4; gotoxy(20 + 8, 7); continue; }
-                    else if (chose == IN::IN_RET) {  }
+                    else if (chose == IN::IN_RET) { route = 6; }
                     break;
                 case 4:
                     if (chose == '\t') { vs = 1; gotoxy(20 + 19, 1); continue; }
@@ -210,9 +209,17 @@ int main() {
             }
             break;
         case 4:
+        {
             if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1300, 500, SWP_SHOWWINDOW | SWP_NOMOVE); }
-            dsHH.Display();
+            int iY = dsHH.Display();
+            box(2, iY * 2 + 3, 6, 1, "Exc", false);
+            gotoxy(6, iY * 2 + 4);
+            while (true) {
+                char _inp = _getch();
+                if (_inp == IN::IN_RET || _inp == 27) break;
+            }
             route = 1;
+        }
             break;
         case 5:
             if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1300, 800, SWP_SHOWWINDOW | SWP_NOMOVE); }
@@ -220,7 +227,9 @@ int main() {
             route = 1;
             break;
         case 6:
-            
+            if (hwnd != NULL) { SetWindowPos(hwnd, 0, 0, 0, 1300, 800, SWP_SHOWWINDOW | SWP_NOMOVE); }
+            dsDh.DatHang(dsHH);
+            route = 1;
             break;
         case 7:
             dsDh.XuLi();

@@ -6,6 +6,7 @@
 #include <sstream>
 #include<fstream>
 
+
 using namespace std;
 
 
@@ -29,11 +30,13 @@ public:
 	void AddTail(HangHoa a);
 	void Nhap(string Path);
 	void UpdateFile(string Path);
-	void Display();
+	int Display();
 	bool IsInHangHoa(string TenHH);
 	void Find(string x);
 	void PrintFind();
 	void ThemHH();
 	void Xoa(string x);
 	void CapNhatSoLuong(string x, int sl);
+	int GetSoLuongMatHang(string x);
+	int GetGiaMatHang(string x);
 };

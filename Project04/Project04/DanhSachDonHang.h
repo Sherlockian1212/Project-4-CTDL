@@ -5,6 +5,10 @@
 #include <vector>
 #include <sstream>
 #include <fstream>
+#include "DanhSachHangHoa.h"
+#include "HangHoa.h"
+#include <chrono>
+#pragma warning(disable : 4996)
 
 using namespace std;
 
@@ -33,6 +37,6 @@ public:
 	void UpdateFile(string path);
 	void AddTail(NodeDonHang a);
 	void XuLi();
-	void DatHang();
+	void DatHang(DanhSachHangHoa dsHH);
 };
 
